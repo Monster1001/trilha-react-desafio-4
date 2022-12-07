@@ -27,6 +27,15 @@ const Login = () => {
     defaultValues,
     reValidateMode: "onChange",
   });
+  let button = document.getElementById("ButtonEntrar")  as HTMLButtonElement | null;
+  if (isValid === false){
+    button?.setAttribute('disabled', '')
+  }else{
+    button?.removeAttribute('disabled');
+  }
+  function onClick(){
+    console.log("Teste Funcionou")
+  }
 
   return (
     <Container>
@@ -49,7 +58,7 @@ const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title="Entrar" />
+          <Button title="Entrar" id="ButtonEntrar" onClick={onClick}/>
         </Column>
       </LoginContainer>
     </Container>
